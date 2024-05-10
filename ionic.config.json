@@ -1,0 +1,7 @@
+{
+  "name": "projectMain",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
