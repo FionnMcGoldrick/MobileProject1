@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonLabel } from '@ionic/angular/standalone';
 import { IonItem } from '@ionic/angular/standalone';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -11,5 +12,10 @@ import { IonItem } from '@ionic/angular/standalone';
 })
 
 export class HomePage {
-  constructor() {}
+  
+  constructor(private router: Router) {}
+
+  goToGameList() {
+    this.router.navigateByUrl('/game-list');
+  }
 }
