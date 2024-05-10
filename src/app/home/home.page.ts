@@ -1,13 +1,19 @@
-import { Component } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular/standalone';
+import { Component, OnInit } from '@angular/core';
+import { GamingService } from '../services/gaming.service';
 
 @Component({
   selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
-  standalone: true,
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent],
+  templateUrl: './home.page.html',
+  styleUrls: ['./home.page.scss'],
 })
-export class HomePage {
-  constructor() {}
+export class HomePage implements OnInit {
+  games: any[] = [];
+
+  constructor(private gamingService: GamingService) { }
+
+  ngOnInit() {
+    this.gamingService.getGames().subscribe((data: any) => {
+      this.games = data.results; // Assuming 'results' contains the array of games
+    });
+  }
 }
